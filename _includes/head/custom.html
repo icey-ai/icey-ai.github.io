@@ -20,4 +20,28 @@
   });
 </script> 
 
+
+    <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.5.0/lib/sakana.min.css -->
+    <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.5.0/lib/sakana.min.js -->
+    <!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.5.0/sakana.min.css -->
+    <!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.5.0/sakana.min.js -->
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/sakana-widget@2.5.0/lib/sakana.min.css"
+    />
+    <script>
+    function initSakanaWidget() {
+      const chisato = SakanaWidget.getCharacter('chisato');
+      chisato.initialState = {
+        ...chisato.initialState,
+        i: 0.001,
+        d: 1,
+        w: 0,
+      };
+      SakanaWidget.registerCharacter('chisato-slow', chisato);
+      new SakanaWidget({ character: 'chisato', size: '75', controls: false, rod: 'false', draggable: 'false' }).mount('#sakana-widget');
+      SakanaWidget.riggetAutoMode();
+    }
+    </script>
 <!-- end custom head snippets -->
