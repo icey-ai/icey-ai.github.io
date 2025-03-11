@@ -1,13 +1,13 @@
 <!-- start custom head snippets -->
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
-{% if page.mathjax %}
+<!-- {% if page.mathjax %}
 <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-{% endif %}
+{% endif %} -->
 
-<script type="text/x-mathjax-config">
+<!-- <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js"],
     jax: ["input/TeX", "output/HTML-CSS"],
@@ -18,7 +18,7 @@
     },
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
-</script> 
+</script>  -->
 
 
     <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.5.0/lib/sakana.min.css -->
@@ -44,4 +44,8 @@
       SakanaWidget.riggetAutoMode();
     }
     </script>
+
+  <!-- katex -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
 <!-- end custom head snippets -->
