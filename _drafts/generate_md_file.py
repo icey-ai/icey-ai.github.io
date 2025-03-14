@@ -15,7 +15,7 @@ def generate_md_file(filename):
 
     header = [
         "---",
-        "layout: post",
+        # "layout: post",
         f"title: {title}",
         f"date: {date}",
         "categories:",
