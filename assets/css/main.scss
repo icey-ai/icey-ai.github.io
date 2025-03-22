@@ -2,24 +2,11 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 search: false
 ---
-
-@charset "utf-8";
-@font-face {
-    font-family: "FZQingKBYSJF-M";
-    src: url("../fonts/FZQingKBYSJF-M.woff") format('woff');
-    font-style: normal;
-}
-@font-face {
-    font-family: "方正北魏楷书";
-    src: url("../fonts/方正北魏楷书_GBK.woff") format('woff');
-    font-style: normal;
-}
-
 /* system typefaces */
-$serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
+$serif: "LXGW WenKai Screen", Georgia, Times, serif !default;
+$sans-serif: "LXGW WenKai Screen", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
  "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-$monospace: Monaco, Consolas, "Lucida Console", monospace !default;
+$monospace: "LXGW WenKai Mono Screen", Monaco, Consolas, "Lucida Console", monospace !default;
 
 /* sans serif typefaces */
 $sans-serif-narrow: $sans-serif !default;
@@ -32,11 +19,11 @@ $bodoni: "Bodoni MT", serif !default;
 $calisto: "Calisto MT", serif !default;
 $garamond: Garamond, serif !default;
 
-$global-font-family: $sans-serif !default;
-$header-font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
-"Helvetica Neue", "Lucida Grande", Arial, "方正北魏楷书", sans-serif  !default;
-$body-font-family: Georgia, Times, "FZQingKBYSJF-M", serif !default;
-$caption-font-family: $serif !default;
+$global-font-family: "LXGW WenKai Screen", $sans-serif !default;
+$header-font-family: "LXGW WenKai Screen", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
+"Helvetica Neue", "Lucida Grande", Arial, sans-serif  !default;
+$body-font-family: "LXGW WenKai Screen", Georgia, Times, serif !default;
+$caption-font-family: "LXGW WenKai Screen", $serif !default;
 
 /* type scale */
 $type-size-1: 2.441em !default; // ~39.056px

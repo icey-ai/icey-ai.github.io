@@ -11,22 +11,22 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-remote_theme             : "mmistakes/minimal-mistakes@4.26.2"
-minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+# remote_theme             : "mmistakes/minimal-mistakes@4.26.2"
+minimal_mistakes_skin    : "dirt" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "zh-CN"
 title                    : "比宇宙更远的地方"
 title_separator          : "-"
 subtitle                 : "沙里淘金，壳中捡麦，水中萃血，皆耗须臾" # site tagline that appears below site title in masthead
-name                     : "Icey AI"
-description              : "回忆可以传承，好似一支火炬，抑或一件宝物"
+name                     : &name "Icey AI" # &name is a YAML anchor which can be *referenced later
+description              : &description "头脑如刀，此处如砥"
 url                      : "https://blog.icey-ai.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "icey-ai/icey-ai.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "assets/images/android-chrome-512x512.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : "无墙之地" # overrides the website title displayed in the masthead, use " " for no title
+masthead_title           : "" # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -111,7 +111,7 @@ analytics:
 author:
   name             : "Icey AI"
   avatar           : "assets/images/20230803174131.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "去寻找书籍——它是一种武器"
+  bio              : "お持ちなさい あなたの望んだその星を"
   location         : "往昔不再之城"
   email            : ""
   links:
@@ -321,3 +321,7 @@ jektex:
   macros:
     - ["\\Q", "\\mathbb{Q}"]
     - ["\\C", "\\mathbb{C}"]
+    - ["\\R", "\\mathbb{R}"]
+    - ["\\dd", "\\mathop{}\\!{\\mathrm{d}}"]
+    - ["\\vec", "\\mathbf{#1}"]
+    - ["\\TanS", "\\mathrm{T}_{#1}(#2)"]
