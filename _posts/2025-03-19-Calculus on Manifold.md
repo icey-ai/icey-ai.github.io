@@ -44,6 +44,7 @@ tags:
         3. [Outward Unit Normal for Manifold](#233-outward-unit-normal-for-manifold)
      4. [General Stokes for Manifold](#24-stokes-theorem-on-manifolds--general-stokes-for-manifold)<br>
         1. [Preparations](#241-preparations)
+        2. [Proof](#242-proof-of-general-stokes)
 </div>
 </details>
 <br><br><br>
