@@ -18,7 +18,7 @@ minimal_mistakes_skin    : "dirt" # "air", "aqua", "contrast", "dark", "dirt", "
 locale                   : "zh-CN"
 title                    : "比宇宙更远的地方"
 title_separator          : "-"
-subtitle                 : "沙里淘金，壳中捡麦，水中萃血，皆耗须臾" # site tagline that appears below site title in masthead
+subtitle                 : "向山进发" # site tagline that appears below site title in masthead
 name                     : &name "Icey AI" # &name is a YAML anchor which can be *referenced later
 description              : &description "头脑如刀，此处如砥"
 url                      : "https://blog.icey-ai.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -111,7 +111,7 @@ analytics:
 author:
   name             : "Icey AI"
   avatar           : "assets/images/20230803174131.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "お持ちなさい あなたの望んだその星を"
+  bio              : "卵を割って、セカイを変えろ" # "お持ちなさい あなたの望んだその星を"
   location         : "往昔不再之城"
   email            : ""
   links:
@@ -213,6 +213,7 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
+  parse_block_html : false
 
 
 # Sass/SCSS
@@ -236,6 +237,7 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jektex
+  - jekyll-gfm-admonitions
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -245,6 +247,7 @@ whitelist:
   - jekyll-feed
   - jekyll-include-cache
   - jektex
+  - jekyll-gfm-admonitions
 
 
 # Archives
@@ -282,7 +285,6 @@ compress_html:
   clippings: all
   ignore:
     envs: development
-
 
 # Defaults
 defaults:
@@ -324,4 +326,4 @@ jektex:
     - ["\\R", "\\mathbb{R}"]
     - ["\\dd", "\\mathop{}\\!{\\mathrm{d}}"]
     - ["\\vec", "\\mathbf{#1}"]
-    - ["\\TanS", "\\mathrm{T}_{#1}(#2)"]
+    - ["\\TanS", "\\mathrm{T}_{#1}#2"]
