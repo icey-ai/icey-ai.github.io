@@ -11,7 +11,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-gist"
   gem "jekyll-feed"
-  gem "jemoji"
+  # gem "jemoji" # due to https://github.com/jekyll/jekyll/issues/9733, disable it
   gem "jekyll-include-cache"
   gem "jekyll-algolia"
   gem "jektex"

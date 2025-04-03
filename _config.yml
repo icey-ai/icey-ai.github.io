@@ -110,7 +110,7 @@ analytics:
 # Site Author
 author:
   name             : "Icey AI"
-  avatar           : "assets/images/20230803174131.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "assets/images/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "卵を割って、セカイを変えろ" # "お持ちなさい あなたの望んだその星を"
   location         : "往昔不再之城"
   email            : ""
@@ -325,5 +325,7 @@ jektex:
     - ["\\C", "\\mathbb{C}"]
     - ["\\R", "\\mathbb{R}"]
     - ["\\dd", "\\mathop{}\\!{\\mathrm{d}}"]
+    - ["\\Div", "\\mathrm{div}\\;"]
     - ["\\vec", "\\mathbf{#1}"]
     - ["\\TanS", "\\mathrm{T}_{#1}#2"]
+    - ["\\norm", "\\left\\lVert{#1}\\right\\rVert"]
