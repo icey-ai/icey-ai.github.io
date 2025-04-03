@@ -510,7 +510,7 @@ Thus, our assumption that conditions (1) and (2) both hold at \(a\) leads to a t
 Once weve established this result, we can really distinguish these two kinds of points. That means, precisely, that we can make the following definitions
 
 ###### Definition 8
-> The <ins>**boundary**</ins> of a manifold \(M\), written as \(\partial M\), is the set of points satisify (2) in Definition [**7**](#definition-7)
+> The <ins>**boundary**</ins> of a manifold \(M\), written as \(\partial M\), is the set of points satisify (2) in [**Definition 7**](#definition-7)
 
 Notice that under this definition, \(\TanS{x}{\partial M}\) will be a \(k-1\) dim subspace of \(\TanS{x}{M}\) when \(\dim M=k\). Thus there are exactly two unit vectors in \(\TanS{x}{M}\) are perpendicular to
 
@@ -538,7 +538,9 @@ Note that this definition is independent of the coordinate system chosen.
 <details>
 <summary>check</summary>
 <div markdown=1>
-1. **Setup and Transition Map**  
+
+**Setup and Transition Map**  
+
    Since \(f\) and \(g\) are diffeomorphisms onto their images in \(M\), define the local transition map
    \[
      \gamma \;=\; g^{-1} \circ f,
@@ -554,7 +556,8 @@ Note that this definition is independent of the coordinate system chosen.
      0.
    \]
 
-2. **Half‐Space Condition**  
+**Half‐Space Condition**  
+
    Both \(f\) and \(g\) are *half‐space charts*, meaning:
    - \(f(\{\,t_k=0\}) \subset \partial M\) and \(f(\{\,t_k>0\}) \subset M \setminus \partial M\).  
    - \(g(\{\,s_k=0\}) \subset \partial M\) and \(g(\{\,s_k>0\}) \subset M \setminus \partial M\).
@@ -572,7 +575,8 @@ Note that this definition is independent of the coordinate system chosen.
      \{\,s_k\ge 0\}.
    \]
 
-3. **Tangent Cones and Their Images**  
+**Tangent Cones and Their Images**  
+
    Denote by \(H_0^k \subset \TanS{0}{\R^k}\) the set of all velocity vectors \(\alpha'(0)\) of curves \(\alpha(t)\subset \{t_k\ge 0\}\) with \(\alpha(0)=0\). Equivalently, \(H_0^k\) is the *tangent cone* of the closed half‐space \(\{t_k\ge 0\}\) at the origin. Since
    \[
      \gamma\bigl(\{\,t_k\ge 0\}\bigr)
@@ -595,7 +599,8 @@ Note that this definition is independent of the coordinate system chosen.
    \]
    Hence \(D\gamma(0)\) is a linear isomorphism from \(H_0^k\) onto itself.
 
-4. **Consistency of the Pushed‐Forward Subspaces**  
+**Consistency of the Pushed‐Forward Subspaces**  
+
    From \(\gamma = g^{-1}\circ f\), we write
    \[
      f_{\sharp}(H_0^k) 
@@ -612,7 +617,8 @@ Note that this definition is independent of the coordinate system chosen.
    \]
    Thus both charts \(f\) and \(g\) push forward the *same* \(k\)-dimensional cone in \(\TanS{x}{\R^n}\), which reflects the tangent‐plus‐normal decomposition at \(x\).
 
-5. **Uniqueness of the Normal Direction**  
+**Uniqueness of the Normal Direction**  
+   
    Within this common \(k\)-dimensional space, the direction of \(\tfrac{\partial}{\partial t_k}\) is precisely the one *normal* to \(\partial M\). Concretely, the subspace spanned by \(\{\tfrac{\partial}{\partial t_1}, \dots, \tfrac{\partial}{\partial t_{k-1}}\}\) projects onto \(\TanS{x}{(\partial M)}\), leaving the line spanned by \(\tfrac{\partial}{\partial t_k}\) as the normal complement. Since both charts determine the *same* pushforward space, they also determine the *same* normal line. By convention, we take the positively oriented side to define the **outward** normal direction.
 
 Therefore, the outward normal vector at \(x\) (up to positive scaling) given by \(f\) agrees with that given by \(g\). This shows that the outward normal on \(\partial M\) is **independent** of the choice of half‐space boundary chart, provided those charts align on the same side of \(\partial M\).
@@ -706,7 +712,7 @@ We remark briefly that for an oriented \( (n-1) \)-dimensional manifold \( M \) 
 
 The vectors \(n(x)\) vary continuously on \(M\), as the Gram–Schmidt process is a continuous procedure. Conversely, if a continuous family of unit normal vectors \(n(x)\) is defined on all of \(M\), then we can determine an orientation of \(M\). 
 
-If \( M \) is the boundary of a manifold, however, we can show that the outward normal we derive agrees with Definition [**9**](#definition-9) above.
+If \( M \) is the boundary of a manifold, however, we can show that the outward normal we derive agrees with [**Definition 9**](#definition-9) above.
 
 <details>
 <summary>Proof</summary>
@@ -853,7 +859,7 @@ Therefore, we can define the integral on a manifold:
 > Let \( M \) be a compact oriented \( k \)-dimensional manifold and let \( \omega \) be a \( k \)-form on \( M \). There are a handful of cases to consider.
 > 1. If there is an orientation preserving singular \( k \)-cube \( c \) in \( M \) such that \( \omega = 0 \) outside of \( c([0,1]^k) \), then we will define
 > \[\int_M \omega = \int_c \omega.\]
-> which is independent of the choice of \(c\) by Lemma [**1**](#lemma-1) as long as \(\omega\) vanishes outside it.
+> which is independent of the choice of \(c\) by [**Lemma 1**](#lemma-1) as long as \(\omega\) vanishes outside it.
 ><br>
 >2. In general, there is an open cover \( \mathcal{O} \) of \( M \) such that, for every \( U \in \mathcal{O} \), there is an orientation preserving singular \( k \)-cube \( c \) such that \( U \cap M \subset c([0,1]^k) \). Let \( \Phi \) be a partition of unity subordinate to \( \mathcal{O} \) that is \( C^\infty \), or at least, \( C^2 \). Define
 > \[\int_M \omega = \sum_{\varphi \in \Phi} \int_M \varphi \omega,\]
@@ -879,7 +885,7 @@ Suppose we have a \(k\)–cube \(c\) that is mapped into \(M\) and that \(c\) is
 lies in \(\partial M\).
 
 - When we pull back the orientation from \(M\) to the cube by \(c\), the standard orientation on \(\R^k\) is given by \(\dd x^1\wedge\cdots\wedge \dd x^k\).
-- The induced orientation on the boundary (via contraction with the outward normal) is, as computed above in Remark [**1**](#remark-1), \((-1)^k\,\dd x^1\wedge\cdots\wedge \dd x^{k-1}\).
+- The induced orientation on the boundary (via contraction with the outward normal) is, as computed above in [**Remark 1**](#remark-1), \((-1)^k\,\dd x^1\wedge\cdots\wedge \dd x^{k-1}\).
 
 Thus, if \(c\) is originally orientation preserving, then the face \(c_{(k,0)}\) inherits the induced orientation that is \((-1)^k\) times the “usual” orientation of a \((k-1)\)–cube.
 
@@ -945,7 +951,7 @@ Thus, under these conditions (namely, that \(\omega\) vanishes outside \(c([0,1]
 
 ### 2.4.2 Proof of general Stokes
 
-With all these preparetions, we now finally can prove the [*General Stokes thm*](#theroem-2general-stokes).
+With all these preparetions, we now finally can prove the [**General Stokes thm**](#theroem-2general-stokes).
 
 <details>
 <summary>The Proof</summary>
@@ -962,7 +968,7 @@ With all these preparetions, we now finally can prove the [*General Stokes thm*]
    whose image is **entirely in the interior** of \(M\) (so it does not meet \(\partial M\)). Assume also \(\omega\) vanishes outside \(c([0,1]^k)\).  
 
 2. **Fundamental Theorem of Calculus / Stokes in the Cube.**  
-   By the standard form of the Stokes Theorem in \(\R^k\) ([“Fundamental Theorem of Calculus”](#theroem-1fundamental-calculus-thm--stokes)), we have
+   By the standard form of the Stokes Theorem in \(\R^k\) ([**Fundamental Theorem of Calculus**](#theroem-1fundamental-calculus-thm--stokes)), we have
    \[
      \int_c \dd \omega 
      \;=\; 
@@ -1190,7 +1196,7 @@ We will conclude this chapter by deducing a classical version of Stokes' Theorem
 
 Let \(\omega=\alpha\dd{x}+\beta\dd{y}\). Then we have
 \[\dd\omega=-\partial_y\alpha\dd{x}\dd{y}+\partial_x\beta\dd{x}\dd{y}\]
-Thus, by *Stokes' Thm*,
+Thus, by [**General Stokes' Thm**](#theroem-2general-stokes),
 \[\int_{\partial M}\alpha\dd{x}+\beta\dd{y}=\int_{M}\dd\omega=\iint_M(\partial_x\beta-\partial_y\alpha)\dd{x}\dd{y}\]
 
 **Q.E.D.**
@@ -1445,12 +1451,12 @@ n^i\dd A&=n^i\sum_{j=1}^{n}(-1)^{j-1} \vec{n}^j \, \dd x^1 \wedge \ldots \wedge 
    \[\dd \omega\;=\;\Bigl(\sum_{i=1}^n \frac{\partial F_i}{\partial x^i}\Bigr)\,\dd V\;=\;(\operatorname{div} F)\,\dd V.\]
 
 3. **Relating \(\omega\) to \(\langle F,\mathbf{n}\rangle\,\dd A\).**  
-   By [Lemma 2](#lemma-2), we have
+   By [**Lemma 2**](#lemma-2), we have
    \[\langle F,\mathbf{n}\rangle \,\dd A\;=\;\sum_{i=1}^n F_i\,\mathbf{n}^i\,\dd A\;=\;\sum_{i=1}^n(-1)^{\,i-1}\,F_i\,\dd x^1\wedge \cdots \wedge \widehat{\dd x^i}\wedge \cdots \wedge \dd x^n\;=\;\omega.\]
    So on the boundary \(\partial M\), the \((n-1)\)-form \(\omega\) coincides with \(\langle F,\mathbf{n}\rangle\,\dd A\).
 
 4. **Applying Stokes’ Theorem.**  
-   Since \(M\) is an oriented manifold with boundary \(\partial M\), the [*General Stokes Theorem*](#theroem-2general-stokes) tells us
+   Since \(M\) is an oriented manifold with boundary \(\partial M\), the [**General Stokes Theorem**](#theroem-2general-stokes) tells us
    \[\int_{M} \dd \omega\;=\;\int_{\partial M} \omega.\]
    Substituting \(\dd \omega = (\operatorname{div}F)\,\dd V\) and \(\omega = \langle F,\mathbf{n}\rangle\,\dd A\), we get
    \[\int_{M} (\operatorname{div}F)\,\dd V\;=\;\int_{\partial M} \langle F,\mathbf{n}\rangle\,\dd A.\]
