@@ -1,5 +1,5 @@
 ---
-layout: none
+permalink: /about/by-nc-sa
 ---
 # Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
 

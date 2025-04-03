@@ -10,7 +10,7 @@ tags:
 ---
 
 > [!NOTE]
-> This work is licensed under a Creative Commons Attribution 4.0 International License. Read [more](https://blog.icey-ai.com/assets/license/by-nc-sa.markdown)<br>
+> This work is licensed under a Creative Commons Attribution 4.0 International License. Read [more](https://blog.icey-ai.com/about/by-nc-sa)<br>
 > ![license](https://blog.icey-ai.com/assets/license/by-nc-sa.svg)
 
 > [!WARNING]
