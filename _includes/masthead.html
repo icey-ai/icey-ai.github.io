@@ -5,7 +5,17 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
+          <a class="site-logo" href="{{ '/' | relative_url }}">
+              <picture>
+                {% unless logo_path_dark == empty %}
+                  <!-- dark mode logo -->
+                  <source
+                    srcset="{{ logo_path_dark | relative_url }}"
+                    media="(prefers-color-scheme: dark)">
+                {% endunless %}
+                <img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}">
+              </picture>
+          </a>
         {% endunless %}
         <a class="site-title" href="{{ '/' | relative_url }}">
           {{ site.masthead_title | default: site.title }}
@@ -23,6 +33,8 @@
           {%- endfor -%}
         </ul>
         {% if site.search == true %}
+        <i class="fas fa-fw fa-adjust" id="theme-toggle" aria-hidden="true" title="Toggle between light and dark mode" onclick="toggleTheme(); return false;"></i>
+        <script>themeOnLoad();</script>
         <button class="search__toggle" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
           <i class="fas fa-search"></i>

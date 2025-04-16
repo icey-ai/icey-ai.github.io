@@ -2,6 +2,9 @@
 title: 流形上的分析 Calculus on Manifold 笔记
 # layout: posts
 date: 2025-03-19
+header:
+  image: "/assets/images/headers/2025-03-19-Calculus on Manifold.png"
+  show_overlay_excerpt: false
 categories:
   - math
   - analysis
@@ -18,7 +21,7 @@ tags:
 
 > [!CAUTION]
 > Work in progress...
-> 
+> <br>
 > Last Update: Mar 2025
 
 > [!IMPORTANT]
@@ -34,57 +37,97 @@ tags:
 <summary>Contents</summary>
 <div markdown=1>
 
-- [1 Fundamental Calculus Thm.](#1-fundamental-calculus-thm)<br>
-      - [Definition 0](#definition-0)<br>
-      - [Theroem 1(Fundamental Calculus Thm / Stokes)](#theroem-1fundamental-calculus-thm--stokes)<br>
+- [1 Review and Preliminary](#1-review-and-preliminary)
+  - [1.1 Review of Manifold](#11-review-of-manifold)
+          - [Proposition -1](#proposition--1)
+  - [1.2 Fundamental Calculus Theorem](#12-fundamental-calculus-theorem)
+          - [Definition 0](#definition-0)
+          - [Theroem 1(Fundamental Calculus Thm / Stokes)](#theroem-1fundamental-calculus-thm--stokes)
 - [2 Integration on Manifold](#2-integration-on-manifold)
   - [2.1 Independence of Parametrization](#21-independence-of-parametrization)
   - [2.2 Integration of forms](#22-integration-of-forms)
-    - [2.2.1 Vector Field and forms on a Manifold](#221-vector-field--forms-on-a-manifold)
-      - [Definition 1](#definition-1)
-      - [Definition 2](#definition-2)
-      - [Proposition 1](#proposition-1)
+    - [2.2.1 Vector Field and forms on a Manifold](#221-vector-field-and-forms-on-a-manifold)
+          - [Definition 1](#definition-1)
+          - [Definition 2](#definition-2)
+          - [Proposition 1](#proposition-1)
     - [2.2.2 Orientation of a manifold](#222-orientation-of-a-manifold)
-      - [Definition 3](#definition-3)
-      - [Definition 4](#definition-4)
-      - [Definition 5](#definition-5)
+          - [Definition 3](#definition-3)
+          - [Definition 4](#definition-4)
+          - [Definition 5](#definition-5)
   - [2.3 Manifold with Boundry](#23-manifold-with-boundry)
     - [2.3.1 Review of definitions about Manifold with Boundry](#231-review-of-definitions-about-manifold-with-boundry)
-      - [Definition 6](#definition-6)
-      - [Definition 7](#definition-7)
-      - [Definition 8](#definition-8)
+          - [Definition 6](#definition-6)
+          - [Definition 7](#definition-7)
+          - [Definition 8](#definition-8)
     - [2.3.2 More with Manifold with Boundry](#232-more-with-manifold-with-boundry)
-      - [Definition 9](#definition-9)
-      - [Definition 10](#definition-10)
-      - [Proposition 2](#proposition-2)
-      - [Remark 1](#remark-1)
+          - [Definition 9](#definition-9)
+          - [Definition 10](#definition-10)
+          - [Proposition 2](#proposition-2)
+          - [Remark 1](#remark-1)
     - [2.3.3 Outward Unit Normal for Manifold](#233-outward-unit-normal-for-manifold)
-      - [Definition 11](#definition-11)
+          - [Definition 11](#definition-11)
   - [2.4 Stokes Theorem on Manifolds / General Stokes for Manifold](#24-stokes-theorem-on-manifolds--general-stokes-for-manifold)
     - [2.4.1 Preparations](#241-preparations)
-      - [Theroem 2(General Stokes)](#theroem-2general-stokes)
-      - [Definition 12](#definition-12)
-      - [Lemma 1](#lemma-1)
-      - [Definition 13](#definition-13)
+          - [Theroem 2(General Stokes)](#theroem-2general-stokes)
+          - [Definition 12](#definition-12)
+          - [Lemma 1](#lemma-1)
+          - [Definition 13](#definition-13)
     - [2.4.2 Proof of general Stokes](#242-proof-of-general-stokes)
     - [2.4.3 Importance](#243-importance)
-      - [Theorm 3 (Green's Theorem)](#theorm-3-greens-theorem)
+          - [Theorm 3 (Green's Theorem)](#theorm-3-greens-theorem)
   - [2.5 Volume Element](#25-volume-element)
     - [2.5.1 Volume of Manifold](#251-volume-of-manifold)
-      - [Definition 14](#definition-14)
-    - [2.5.2 The Volume Element of an Oriented Surface in 3 dimension](#252-the-volume-element-of-an-oriented-surface-in-r3)
-      - [Proposition 3](#proposition-3)
-      - [Lemma 2](#lemma-2)
+          - [Definition 14](#definition-14)
+    - [2.5.2 The Volume Element of an Oriented Surface in (\\R^3)](#252-the-volume-element-of-an-oriented-surface-in-r3)
+          - [Proposition 3](#proposition-3)
+          - [Lemma 2](#lemma-2)
     - [2.5.3 Divergence Theorem / Gauss's theorem](#253-divergence-theorem--gausss-theorem)
-      - [Theorem 4 (Divergence Theorem / Gauss's theorem)](#theorem-4-divergence-theorem--gausss-theorem)
+          - [Theorem 4 (Divergence Theorem / Gauss's theorem)](#theorem-4-divergence-theorem--gausss-theorem)
     - [2.5.4 Original Stokes' Theorem](#254-original-stokes-theorem)
-      - [Theorem 5 (Original Stokes' Theorem)](#theorem-5-original-stokes-theorem)
+          - [Theorem 5 (Original Stokes' Theorem)](#theorem-5-original-stokes-theorem)
 </div>
 </details>
 <br><br><br>
 
-# 1 Fundamental Calculus Thm.
 
+# 1 Review and Preliminary
+## 1.1 Review of Manifold
+
+Recall an important thing of manifold:
+
+###### Proposition -1
+> Let \(M\) be a \(\mathcal{C}^1\) manifold of dimension \(k\). Then for each point \(x \in M\), the tangent space \(\TanS{x}{M}\) is a \(k\)-dimensional vector space.
+
+<details>
+<summary>Proof of the Prop.</summary>
+<div markdown=1>
+
+1. **Coordinate Charts and Local Diffeomorphisms.**  
+   By definition of a \(\mathcal{C}^1\) \(k\)-dimensional manifold, there exists an open set \(U \subset \R^k\) and a \(\mathcal{C}^1\) *coordinate chart* \(\varphi \colon U \to M\). This map \(\varphi\) is a homeomorphism onto its image, and its inverse \(\varphi^{-1}\) is defined on \(\varphi(U)\subset M\).  
+
+2. **Differential is an Isomorphism.**  
+   For each point \(p \in U\), the *differential* (a.k.a. Jacobian matrix) of \(\varphi\) at \(p\), denoted
+   \[
+     \dd \varphi(p) \colon \R^k \;\longrightarrow\; \TanS{\varphi(p)}{M},
+   \]
+   is a linear map from \(\R^k\) into the tangent space of \(M\) at \(\varphi(p)\). Since \(\varphi\) is a \(\mathcal{C}^1\) coordinate chart, its differential is a *linear isomorphism* at each point \(p\). In other words, \(\dd \varphi(p)\) is invertible.
+
+3. **Dimension Count.**  
+   Because \(\dd \varphi(p)\) is an isomorphism, it maps a \(k\)-dimensional space \(\R^k\) *onto* the tangent space \(\TanS{\varphi(p)}{M}\). Hence  
+   \[\dim \TanS{\varphi(p)}{M} \;=\; \dim \R^k \;=\; k\]
+   Renaming \(\varphi(p)\) as \(x \in M\) completes the argument.
+
+Since the point \(x\) was arbitrary, this shows that every tangent space \(\TanS{x}{M}\) has dimension \(k\), which matches the manifold dimension.
+
+**Q.E.D.**
+
+</div>
+</details>
+
+In the rest of notes, we will take these things as granted.
+
+
+## 1.2 Fundamental Calculus Theorem
 ###### Definition 0
 > Let \(\omega\) be a \(k\) form on \([0,1]^k\) with a unique function \(f\) such that \(\omega=f\dd{x^1}\wedge\cdots\wedge \dd{x^n}\). Then, we define
 > \[\int_{[0,1]^k}\omega=\int_{[0,1]^k}f\]
@@ -187,7 +230,7 @@ Because \(\det J_p\geq 0\), we may apply change of variable formula here and con
 </details>
 
 ## 2.2 Integration of forms
-### 2.2.1 Vector Field & forms on a Manifold
+### 2.2.1 Vector Field and forms on a Manifold
 
 ###### Definition 1
 > A <ins>**vector field**</ins> \(F\) on manifold \(M\) is a funtion \(F:M\to N\) such that
@@ -298,12 +341,12 @@ Let \(\omega\) be a \(p\)-form on \(M\). We wish to define a \((p+1)\)-form \(\d
 
    Consider a coordinate chart \(\varphi: W \to M\) such that \(a \in \varphi(W)\). We define
    \[
-     (\dd \omega)(a)(\vec{v}) \;:=\;
-     \dd \bigl(\varphi^\sharp \omega\bigr)\bigl(\varphi^{-1}(a)\bigr)\bigl(\vec{w}\bigr),
+     (\dd \omega)(a)(\Vec{v}) \;:=\;
+     \dd \bigl(\varphi^\sharp \omega\bigr)\bigl(\varphi^{-1}(a)\bigr)\bigl(\Vec{w}\bigr),
    \]
-   where \(\vec{v} = (\vec{v}_1, \dots, \vec{v}_{p+1})\) is an ordered \((p+1)\)-tuple of tangent vectors at \(a\), and
+   where \(\Vec{v} = (\Vec{v}_1, \dots, \Vec{v}_{p+1})\) is an ordered \((p+1)\)-tuple of tangent vectors at \(a\), and
    \[
-     \vec{w}_i \;=\; \dd \varphi_x\bigl(\vec{v}_i\bigr)
+     \Vec{w}_i \;=\; \dd \varphi_x\bigl(\Vec{v}_i\bigr)
      \quad\text{with } x = \varphi^{-1}(a).
    \]
    Here, \(\varphi^\sharp \omega\) denotes the pullback of \(\omega\) to \(W \subset \R^k\), and
@@ -389,7 +432,7 @@ Based on this, were going to call a given coordinate chart either orientation pr
    Recall that an orientation \(\mu_{\varphi(a)}\) at a point \(\varphi(a)\in\R^k\) can be identified with an ordered orthonormal basis \([v_1, \dots, v_k]\).  In particular, there exists a unique volume form \(\omega\) up to scalar such that:
 
    1. \(\omega(v_1, \dots, v_k) = 1\) whenever \([v_1, \dots, v_k]\) is the positively oriented orthonormal basis corresponding to \(\mu_{\varphi(a)}\).  
-   2. \(\omega(L\,\vec{v}) = \det(L)\,\omega(\vec{v})\) for every linear transformation \(L\) and every \(k\)-tuple of vectors \(\vec{v} = (v_1, \dots, v_k)\).
+   2. \(\omega(L\,\Vec{v}) = \det(L)\,\omega(\Vec{v})\) for every linear transformation \(L\) and every \(k\)-tuple of vectors \(\Vec{v} = (v_1, \dots, v_k)\).
 
 **Determinant and Orientation**
 
@@ -446,8 +489,8 @@ There is a famous example of non-orientable manifold, *Mobius strip*. However, i
 Recall following definitions about manifold with boundry:
 
 ###### Definition 6
-> A <ins>**half space**</ins> \(\mathbb{H}^k\subset\R^k\) is given by
-> \[\{\vec{x}|\vec{x}_i>0\}\]
+> A <ins>**half space**</ins> \(\H^k\subset\R^k\) is given by
+> \[\{\Vec{x}|\Vec{x}_i>0\}\]
 
 ###### Definition 7
 > A subset \( M \subseteq \R^n \) is a \( k \)-dimensional \( \mathcal{C}^r \) <ins>**manifold-with-boundary**</ins> if for every \( a \in M \), there is an open neighborhood \( U \) of \( a \) in \( \R^n \), an open subset \( V \) of \( \R^n \) and a \( \mathcal{C}^r \) diffeomorphism \( h : U \to V \) such that either
@@ -456,7 +499,7 @@ Recall following definitions about manifold with boundry:
 > \[h(M \cap U) = V \cap (\R^k \times \{0 \in \R^{n-k}\})\]
 >
 > (2) The manifold looks like a half space around \( a \), i.e.
-> \[h(M \cap U) = V \cap (\mathbb{H}^k \times \{0 \in \R^{n-k}\}) = \{ y = (y_1, \ldots, y_n) : y_1, \ldots, y_k \geq 0 \wedge y_{k+1} = \ldots = y_n = 0 \} \]
+> \[h(M \cap U) = V \cap (\H^k \times \{0 \in \R^{n-k}\}) = \{ y = (y_1, \ldots, y_n) : y_1, \ldots, y_k \geq 0 \wedge y_{k+1} = \ldots = y_n = 0 \} \]
 > 
 > holds
 
@@ -489,7 +532,7 @@ Since \(h_1\) and \(h_2\) are diffeomorphisms, \(f\) is itself a \(\mathcal{C}^r
 
 As
    - By condition (1), \(V_1'\) locally resembles \(\R^k \times \{0\}^{n-k}\) in a way that is \(\mathcal{C}^r\)-diffeomorphic.  
-   - By condition (2), \(V_2'\) locally resembles \(\mathbb{H}^k \times \{0\}^{n-k}\) (where \(\mathbb{H}^k\) is a half-space in \(\R^k\)) in a way that is \(\mathcal{C}^r\)-diffeomorphic.
+   - By condition (2), \(V_2'\) locally resembles \(\H^k \times \{0\}^{n-k}\) (where \(\H^k\) is a half-space in \(\R^k\)) in a way that is \(\mathcal{C}^r\)-diffeomorphic.
 
 under \(f\), the set
 \[
@@ -497,9 +540,9 @@ V_1' \,\cap\, \bigl(\R^k \times \{0\}^{n-k}\bigr)
 \]
 (an open neighborhood in \(\R^k\)) must map to
 \[
-V_2' \,\cap\, \bigl(\mathbb{H}^k \times \{0\}^{n-k}\bigr),
+V_2' \,\cap\, \bigl(\H^k \times \{0\}^{n-k}\bigr),
 \]
-which is a set open in \(\mathbb{H}^k\) (in its subspace topology) but not open in the standard topology of \(\R^k\). Since a homeomorphism preserves topological openness, this situation is impossible. The image of an open set in \(\R^k\) under \(f\) would have to remain open in \(\R^k\), contradicting the fact that \(\mathbb{H}^k\) is not open in \(\R^k\).
+which is a set open in \(\H^k\) (in its subspace topology) but not open in the standard topology of \(\R^k\). Since a homeomorphism preserves topological openness, this situation is impossible. The image of an open set in \(\R^k\) under \(f\) would have to remain open in \(\R^k\), contradicting the fact that \(\H^k\) is not open in \(\R^k\).
 
 Thus, our assumption that conditions (1) and (2) both hold at \(a\) leads to a topological contradiction. Therefore, no single point \(a\) in the manifold can satisfy both conditions simultaneously.
 
@@ -512,19 +555,12 @@ Once weve established this result, we can really distinguish these two kinds of 
 ###### Definition 8
 > The <ins>**boundary**</ins> of a manifold \(M\), written as \(\partial M\), is the set of points satisify (2) in [**Definition 7**](#definition-7)
 
-Notice that under this definition, \(\TanS{x}{\partial M}\) will be a \(k-1\) dim subspace of \(\TanS{x}{M}\) when \(\dim M=k\). Thus there are exactly two unit vectors in \(\TanS{x}{M}\) are perpendicular to
-
-<details>
-<summary>why?</summary>
-<div markdown=1>
-TODO
-</div>
-</details>
+Notice that under this definition, \(\TanS{x}{\partial M}\) will be a \(k-1\) dim subspace of \(\TanS{x}{M}\) when \(\dim M=k\). Thus there are exactly two unit vectors in \(\TanS{x}{M}\) are perpendicular to.
 
 ### 2.3.2 More with Manifold with Boundry
 As we can see, the definitions for vector fields, forms, and orientations all make sense in this new context. There are furthermore 2 unit vectors in \(\TanS{x}{M}\) perpendicular to \(\TanS{x}{\partial M}\) (pointing in exactly opposite directions).
 
-Let \(\varphi:W\cap\mathbb{H}^k\to\R^n\) be a coordinate chart for \(M\) where \(W\subset\R^k\), and assume
+Let \(\varphi:W\cap\H^k\to\R^n\) be a coordinate chart for \(M\) where \(W\subset\R^k\), and assume
 \[\varphi(a)=x\in\partial M\]
 Then the exactly one of these unit vectors can be written into
 \[\varphi_{\sharp(a)}(v_a)\]
@@ -671,21 +707,21 @@ Thus, if \(M\) is orientable with orientation \(\mu\), the boundary \(\partial M
 
 ###### Remark 1
 
-> If we apply these definitions to \(\mathbb{H}^k\) with the usual orientation, we find that the induced orientation on \(\R^{k-1} = {x|\mathbb{H}^k: x^k = 0}\) is \((-1)^k\) times the usual orientation. 
+> If we apply these definitions to \(\H^k\) with the usual orientation, we find that the induced orientation on \(\R^{k-1} = \{x|\H^k: x^k = 0\}\) is \((-1)^k\) times the usual orientation. 
 
 <details>
 <summary>Proof of the Remark.</summary>
 <div markdown=1>
 
 We start with the half‐space
-\[\mathbb{H}^k = \{(x^1, \dots, x^k)\in\R^k : x^k\ge 0\},\]
+\[\H^k = \{(x^1, \dots, x^k)\in\R^k : x^k\ge 0\},\]
 with its usual orientation given by the standard volume form
 \[\mu = \dd x^1\wedge \dd x^2\wedge \cdots\wedge \dd x^k\]
 Its boundary is
-\[\partial \mathbb{H}^k = \{(x^1,\dots,x^k)\in\R^k: x^k=0\},\]
+\[\partial \H^k = \{(x^1,\dots,x^k)\in\R^k: x^k=0\},\]
 which is naturally identified with \(\R^{k-1}\) (with the usual orientation \(\dd x^1\wedge\cdots\wedge \dd x^{k-1}\)).
 
-The induced orientation on \(\partial \mathbb{H}^k\) is defined by using the **outward unit normal** to \(\mathbb{H}^k\). Since the interior of \(\mathbb{H}^k\) is \( \{x^k > 0\} \), the outward normal is the vector pointing in the direction where \(x^k\) decreases. In standard coordinates this is
+The induced orientation on \(\partial \H^k\) is defined by using the **outward unit normal** to \(\H^k\). Since the interior of \(\H^k\) is \( \{x^k > 0\} \), the outward normal is the vector pointing in the direction where \(x^k\) decreases. In standard coordinates this is
 \[n = -e_k = -\frac{\partial}{\partial x^k}\dd{x^k}\]
 The induced \((k-1)\)-form is given by contracting the \(k\)-form \(\mu\) with \(n\):
 \[\iota_{n}\mu = \iota_{-e_k}(\dd x^1\wedge\cdots\wedge \dd x^k)\]
@@ -721,12 +757,55 @@ TODO
 </div>
 </details>
 
+
 Now we may prove why *Mobius strip* is not orientable.
 
 <details>
 <summary>Proof</summary>
 <div markdown=1>
-TODO
+
+1. **Computing the Normal Vector**  
+   A local normal vector can be obtained by taking the cross product of the partial derivatives
+   \[
+     \frac{\partial \varphi}{\partial \theta}(\theta,t)
+     \quad \text{and} \quad
+     \frac{\partial \varphi}{\partial t}(\theta,t).
+   \]
+   At the line \(t=0\), these derivatives simplify. Denote
+   \[
+     \Vec{n}(\theta,0)
+     \;=\;
+     \frac{\partial \varphi}{\partial \theta}(\theta,0)
+     \;\times\;
+     \frac{\partial \varphi}{\partial t}(\theta,0).
+   \]
+
+2. **Values at \(\theta=0\) and \(\theta=2\pi\)**  
+   By direct (though somewhat tedious) computation, one obtains:
+   \[
+     \Vec{n}(0,0)
+     \;=\;
+     \bigl(0,\;0,\;-\tfrac12\bigr),
+     \quad
+     \Vec{n}(2\pi,0)
+     \;=\;
+     \bigl(0,\;0,\;+\tfrac12\bigr).
+   \]
+   Meanwhile, the base points in the strip coincide:
+   \[
+     \varphi(0,0)
+     \;=\;
+     \varphi(2\pi,0).
+   \]
+   That is, the same physical point on the Möbius strip has **two different normal vectors** if we demand continuity of the normal across this identification.
+
+3. **Contradiction**  
+   If \(M\) were an orientable surface in \(\mathbb{R}^3\), one could choose a continuous unit normal vector field \(\Vec{n}(x)\) at every point \(x \in M\). But the Möbius strip is **nonorientable**, so no such globally continuous choice exists. Concretely, the mismatch 
+   \(\Vec{n}(0,0) \neq \Vec{n}(2\pi,0)\) while \(\varphi(0,0)=\varphi(2\pi,0)\) contradicts the requirement of continuity for a globally well‐defined normal.
+
+**Q.E.D.**
+
+
 </div>
 </details>
 
@@ -1342,10 +1421,10 @@ We may generalize this Prop. into following lemma:
 
 ###### Lemma 2
 
-> Let \( M \) be an oriented hypersurface on \( \R^n \) (with or without boundary) and \( \vec{n}=n(x) \) be its outward unit normal. Then
-> \[\dd A = \sum_{i=1}^{n} (-1)^{i-1} \vec{n}^i \, \dd x^1 \wedge \ldots \wedge \widehat{\dd x^i} \wedge \ldots \wedge \dd x^n\]
+> Let \( M \) be an oriented hypersurface on \( \R^n \) (with or without boundary) and \( \Vec{n}=n(x) \) be its outward unit normal. Then
+> \[\dd A = \sum_{i=1}^{n} (-1)^{i-1} \Vec{n}^i \, \dd x^1 \wedge \ldots \wedge \widehat{\dd x^i} \wedge \ldots \wedge \dd x^n\]
 > Moreover,
-> \[\forall i, \quad \vec{n}^i \dd A = (-1)^{i-1} \dd x^1 \wedge \ldots \wedge \widehat{\dd x^i} \wedge \ldots \wedge \dd x^n\]
+> \[\forall i, \quad \Vec{n}^i \dd A = (-1)^{i-1} \dd x^1 \wedge \ldots \wedge \widehat{\dd x^i} \wedge \ldots \wedge \dd x^n\]
 
 <details>
 <summary>Proof</summary>
@@ -1358,28 +1437,28 @@ We may generalize this Prop. into following lemma:
 **Expression for \(\dd A\)**
 
 Let \(\beta = \{\beta_1,\dots,\beta_{n-1}\}\) be a positively oriented orthonormal basis in \(\TanS{x}{M}\). Write \(\beta_j=(\beta_j^1,\dots,\beta_j^n)\in\R^n\). By definition,
-\[\Bigl(\sum_{i=1}^{n}(-1)^{i-1}\,\vec{n}^{\,i}\,\dd x^1 \wedge \cdots\wedge \widehat{\dd x^i}\wedge \cdots\wedge \dd x^n\Bigr)\!(\beta)\;=\;\sum_{i=1}^{n}(-1)^{i-1}\,\vec{n}^{\,i}\,\det(A_i),\]
+\[\Bigl(\sum_{i=1}^{n}(-1)^{i-1}\,\Vec{n}^{\,i}\,\dd x^1 \wedge \cdots\wedge \widehat{\dd x^i}\wedge \cdots\wedge \dd x^n\Bigr)\!(\beta)\;=\;\sum_{i=1}^{n}(-1)^{i-1}\,\Vec{n}^{\,i}\,\det(A_i),\]
 where \(A_i\) is the \((n-1)\times(n-1)\) matrix whose \((j,k)\)-th entry is
 \[\dd x^k(\beta_j),\quad k \,\in\,\{\,1,\dots,i-1,i+1,\dots,n\}.\]
-Equivalently, we can view this sum of determinants as the expanded determinant of the following \(n\times n\) matrix (adding the row \(\vec{n}\) to the top and filling the rest with the coordinates of \(\beta\)):
+Equivalently, we can view this sum of determinants as the expanded determinant of the following \(n\times n\) matrix (adding the row \(\Vec{n}\) to the top and filling the rest with the coordinates of \(\beta\)):
 \[\begin{pmatrix}
-\vec{n}^{\,1} & \vec{n}^{\,2} & \cdots & \vec{n}^{\,n}\\[6pt]
+\Vec{n}^{\,1} & \Vec{n}^{\,2} & \cdots & \Vec{n}^{\,n}\\[6pt]
 \dd x^1(\beta_1) & \dd x^2(\beta_1) & \cdots & \dd x^n(\beta_1)\\[3pt]
 \vdots & \vdots & \ddots & \vdots \\[3pt]
 \dd x^1(\beta_{n-1}) & \dd x^2(\beta_{n-1}) & \cdots & \dd x^n(\beta_{n-1})
 \end{pmatrix}.\]
 Hence,
-\[\sum_{i=1}^{n}(-1)^{i-1}\,\vec{n}^{\,i}\,\det(A_i)\;=\;\det\Bigl(\,[\,\vec{n},\beta_1,\dots,\beta_{n-1}\,]\Bigr),\]
-where \([\vec{n},\beta_1,\dots,\beta_{n-1}]\) denotes the \(n\times n\) matrix with columns \(\vec{n},\beta_1,\dots,\beta_{n-1}\).
+\[\sum_{i=1}^{n}(-1)^{i-1}\,\Vec{n}^{\,i}\,\det(A_i)\;=\;\det\Bigl(\,[\,\Vec{n},\beta_1,\dots,\beta_{n-1}\,]\Bigr),\]
+where \([\Vec{n},\beta_1,\dots,\beta_{n-1}]\) denotes the \(n\times n\) matrix with columns \(\Vec{n},\beta_1,\dots,\beta_{n-1}\).
 
 **Relation to the Unit Normal**
 
-Since \(\beta_1,\dots,\beta_{n-1}\) lie in \(\TanS{x}{M}\) and \(\vec{n}=n(x)\) is the unit normal, the \(n\)-tuple \(\{\vec{n},\beta_1,\dots,\beta_{n-1}\}\) forms a positively oriented orthonormal basis for \(\R^n\). Therefore,
-\[\det\bigl(\,\vec{n},\beta_1,\dots,\beta_{n-1}\bigr)\;=\;1.\]
+Since \(\beta_1,\dots,\beta_{n-1}\) lie in \(\TanS{x}{M}\) and \(\Vec{n}=n(x)\) is the unit normal, the \(n\)-tuple \(\{\Vec{n},\beta_1,\dots,\beta_{n-1}\}\) forms a positively oriented orthonormal basis for \(\R^n\). Therefore,
+\[\det\bigl(\,\Vec{n},\beta_1,\dots,\beta_{n-1}\bigr)\;=\;1.\]
 Putting it together, for every positively oriented orthonormal basis \(\beta\subset \TanS{x}{M}\),
-\[\Bigl(\sum_{i=1}^{n}(-1)^{i-1}\,\vec{n}^{\,i}\,\dd x^1\wedge\cdots\wedge\widehat{\dd x^i}\wedge\cdots\wedge\dd x^n\Bigr)\!(\beta)\;=\;1\;=\;\dd A_x(\beta).\]
+\[\Bigl(\sum_{i=1}^{n}(-1)^{i-1}\,\Vec{n}^{\,i}\,\dd x^1\wedge\cdots\wedge\widehat{\dd x^i}\wedge\cdots\wedge\dd x^n\Bigr)\!(\beta)\;=\;1\;=\;\dd A_x(\beta).\]
 Since such \(\beta\) characterize \(\dd A\) completely, we conclude
-\[\dd A\;=\;\sum_{i=1}^{n}(-1)^{i-1}\,\vec{n}^{\,i}  \,\dd x^1\wedge\cdots\wedge\widehat{\dd x^i}\wedge\cdots\wedge\dd x^n.\]
+\[\dd A\;=\;\sum_{i=1}^{n}(-1)^{i-1}\,\Vec{n}^{\,i}  \,\dd x^1\wedge\cdots\wedge\widehat{\dd x^i}\wedge\cdots\wedge\dd x^n.\]
 
 ---
 
@@ -1387,35 +1466,35 @@ Since such \(\beta\) characterize \(\dd A\) completely, we conclude
 
 
 We want to show
-\[\vec{n}^{\,i}\,\dd A\;=\;(-1)^{i-1}\,\dd x^1\wedge \cdots\wedge \widehat{\dd x^i}\wedge \cdots\wedge \dd x^n.\]
+\[\Vec{n}^{\,i}\,\dd A\;=\;(-1)^{i-1}\,\dd x^1\wedge \cdots\wedge \widehat{\dd x^i}\wedge \cdots\wedge \dd x^n.\]
 Equivalently,
-\[(\vec{n}^{\,i}\,\dd A)\!(\beta)\;=\;(-1)^{i-1}\,\bigl(\dd x^1\wedge \cdots\wedge \widehat{\dd x^i}\wedge \cdots\wedge \dd x^n\bigr)\!(\beta)\quad\text{for all }\beta\subset \TanS{x}{M}.\]
+\[(\Vec{n}^{\,i}\,\dd A)\!(\beta)\;=\;(-1)^{i-1}\,\bigl(\dd x^1\wedge \cdots\wedge \widehat{\dd x^i}\wedge \cdots\wedge \dd x^n\bigr)\!(\beta)\quad\text{for all }\beta\subset \TanS{x}{M}.\]
 
-**Orthogonality Condition \(\sum_{j=1}^n \vec{n}^{\,j}\,\dd x^j = 0\) on \(\TanS{x}{M}\)**
+**Orthogonality Condition \(\sum_{j=1}^n \Vec{n}^{\,j}\,\dd x^j = 0\) on \(\TanS{x}{M}\)**
 
-Since \(\vec{n}\) is orthogonal to every vector \(v\in \TanS{x}{M}\), we have \(\langle \vec{n},v\rangle=0\). But
-\[\langle \vec{n}, v\rangle=\sum_{j=1}^n \vec{n}^{\,j}\,v^j =\sum_{j=1}^n \vec{n}^{\,j}\,\dd x^j(v),\]
-so \(\bigl(\sum_{j=1}^n \vec{n}^{\,j}\,\dd x^j\bigr)(v) = 0\) for all \(v\in \TanS{x}{M}\). Hence,
-\[\sum_{j=1}^n \vec{n}^{\,j}\,\dd x^j\;=\;0\quad\text{on }\TanS{x}{M}.\]
+Since \(\Vec{n}\) is orthogonal to every vector \(v\in \TanS{x}{M}\), we have \(\langle \Vec{n},v\rangle=0\). But
+\[\langle \Vec{n}, v\rangle=\sum_{j=1}^n \Vec{n}^{\,j}\,v^j =\sum_{j=1}^n \Vec{n}^{\,j}\,\dd x^j(v),\]
+so \(\bigl(\sum_{j=1}^n \Vec{n}^{\,j}\,\dd x^j\bigr)(v) = 0\) for all \(v\in \TanS{x}{M}\). Hence,
+\[\sum_{j=1}^n \Vec{n}^{\,j}\,\dd x^j\;=\;0\quad\text{on }\TanS{x}{M}.\]
 We use this identity to simplify expressions involving wedge products.
 
 **Computation**
 
 For all \(j > i\), we may obtain
 \[\begin{aligned}
-\vec{n}^i \vec{n}^j \dd x^1 \wedge \ldots \wedge \widehat{\dd x^j} \wedge \ldots \wedge \dd x^n&=(-1)^{i-1}\vec{n}^j(\vec{n}^i \dd x^i)\bigwedge_{k=1,k\neq i,j}^n\dd x^k\\
-&=(-1)^{i}\vec{n}^j\left(\sum_{l=1,l\neq i}^n \vec{n}^l\dd x^l\right)\bigwedge_{k=1,k\neq i,j}^n\dd x^k\\
-&=(-1)^{i}\sum_{l=1,l\neq i}^n\vec{n}^j\vec{n}^l\dd x^l\wedge\left(\bigwedge_{k=1,k\neq i,j}^n\dd x^k\right)\\
-&=(-1)^{i}\vec{n}^j\vec{n}^j\dd x^j\wedge\left(\bigwedge_{k=1,k\neq i,j}^n\dd x^k\right)\\
-&=(-1)^{i+j-2}\vec{n}^j\vec{n}^j\left(\bigwedge_{k=1,k\neq i}^n\dd x^k\right)\\
+\Vec{n}^i \Vec{n}^j \dd x^1 \wedge \ldots \wedge \widehat{\dd x^j} \wedge \ldots \wedge \dd x^n&=(-1)^{i-1}\Vec{n}^j(\Vec{n}^i \dd x^i)\bigwedge_{k=1,k\neq i,j}^n\dd x^k\\
+&=(-1)^{i}\Vec{n}^j\left(\sum_{l=1,l\neq i}^n \Vec{n}^l\dd x^l\right)\bigwedge_{k=1,k\neq i,j}^n\dd x^k\\
+&=(-1)^{i}\sum_{l=1,l\neq i}^n\Vec{n}^j\Vec{n}^l\dd x^l\wedge\left(\bigwedge_{k=1,k\neq i,j}^n\dd x^k\right)\\
+&=(-1)^{i}\Vec{n}^j\Vec{n}^j\dd x^j\wedge\left(\bigwedge_{k=1,k\neq i,j}^n\dd x^k\right)\\
+&=(-1)^{i+j-2}\Vec{n}^j\Vec{n}^j\left(\bigwedge_{k=1,k\neq i}^n\dd x^k\right)\\
 \end{aligned}\]
 Likewise, for all \(j < i\),
-\[\vec{n}^i \vec{n}^j \dd x^1 \wedge \ldots \wedge \widehat{\dd x^j} \wedge \ldots \wedge \dd x^n=(-1)^{i+j-2}\vec{n}^j\vec{n}^j\left(\bigwedge_{k=1,k\neq i}^n\dd x^k\right)\]
-and for \(i=j\), we just have \(\vec{n}^i\vec{n}^i\left(\bigwedge_{k=1,k\neq i}^n\dd x^k\right)\).
+\[\Vec{n}^i \Vec{n}^j \dd x^1 \wedge \ldots \wedge \widehat{\dd x^j} \wedge \ldots \wedge \dd x^n=(-1)^{i+j-2}\Vec{n}^j\Vec{n}^j\left(\bigwedge_{k=1,k\neq i}^n\dd x^k\right)\]
+and for \(i=j\), we just have \(\Vec{n}^i\Vec{n}^i\left(\bigwedge_{k=1,k\neq i}^n\dd x^k\right)\).
 Hence,
 \[\begin{aligned}
-n^i\dd A&=n^i\sum_{j=1}^{n}(-1)^{j-1} \vec{n}^j \, \dd x^1 \wedge \ldots \wedge \widehat{\dd x^j} \wedge \ldots \wedge \dd x^n\\
-&=(-1)^{i-1}\left(\sum_{j=1}^{n}\vec{n}^j\vec{n}^j\right)\left(\bigwedge_{k=1,k\neq i}^n\dd x^k\right)\\
+n^i\dd A&=n^i\sum_{j=1}^{n}(-1)^{j-1} \Vec{n}^j \, \dd x^1 \wedge \ldots \wedge \widehat{\dd x^j} \wedge \ldots \wedge \dd x^n\\
+&=(-1)^{i-1}\left(\sum_{j=1}^{n}\Vec{n}^j\Vec{n}^j\right)\left(\bigwedge_{k=1,k\neq i}^n\dd x^k\right)\\
 &=(-1)^{i-1} \dd x^1 \wedge \ldots \wedge \widehat{\dd x^i} \wedge \ldots \wedge \dd x^n
 \end{aligned}\]
 
@@ -1428,7 +1507,7 @@ n^i\dd A&=n^i\sum_{j=1}^{n}(-1)^{j-1} \vec{n}^j \, \dd x^1 \wedge \ldots \wedge 
 
 ###### Theorem 4 (Divergence Theorem / Gauss's theorem)  
 
-> Let \( M \subset \R^n \) be a compact \(n\)-dimensional manifold-with-boundary and \( \vec{n} \) the unit outward normal on \( \partial M \). Let \( F \) be a differentiable vector field on \( M \). Then
+> Let \( M \subset \R^n \) be a compact \(n\)-dimensional manifold-with-boundary and \( \Vec{n} \) the unit outward normal on \( \partial M \). Let \( F \) be a differentiable vector field on \( M \). Then
 > \[\int_M \operatorname{div} F \, \dd V = \int_{\partial M} \langle F, n \rangle \, \dd A.\]
 > where \( \operatorname{div} F = \frac{\partial F^1}{\partial x^1} + \cdots + \frac{\partial F_n}{\partial x^n} \), \(\dd V\) is the volume form(i.e. \(\dd V=\bigwedge\dd x^i\)) on \(\R^n\), and \(\dd A\) is the induced \((n-1)\)-dimensional area form on the boundary.
 
@@ -1450,16 +1529,16 @@ n^i\dd A&=n^i\sum_{j=1}^{n}(-1)^{j-1} \vec{n}^j \, \dd x^1 \wedge \ldots \wedge 
    Thus,
    \[\dd \omega\;=\;\Bigl(\sum_{i=1}^n \frac{\partial F_i}{\partial x^i}\Bigr)\,\dd V\;=\;(\operatorname{div} F)\,\dd V.\]
 
-3. **Relating \(\omega\) to \(\langle F,\mathbf{n}\rangle\,\dd A\).**  
+3. **Relating \(\omega\) to \(\langle F,\Vec{n}\rangle\,\dd A\).**  
    By [**Lemma 2**](#lemma-2), we have
-   \[\langle F,\mathbf{n}\rangle \,\dd A\;=\;\sum_{i=1}^n F_i\,\mathbf{n}^i\,\dd A\;=\;\sum_{i=1}^n(-1)^{\,i-1}\,F_i\,\dd x^1\wedge \cdots \wedge \widehat{\dd x^i}\wedge \cdots \wedge \dd x^n\;=\;\omega.\]
-   So on the boundary \(\partial M\), the \((n-1)\)-form \(\omega\) coincides with \(\langle F,\mathbf{n}\rangle\,\dd A\).
+   \[\langle F,\Vec{n}\rangle \,\dd A\;=\;\sum_{i=1}^n F_i\,\Vec{n}^i\,\dd A\;=\;\sum_{i=1}^n(-1)^{\,i-1}\,F_i\,\dd x^1\wedge \cdots \wedge \widehat{\dd x^i}\wedge \cdots \wedge \dd x^n\;=\;\omega.\]
+   So on the boundary \(\partial M\), the \((n-1)\)-form \(\omega\) coincides with \(\langle F,\Vec{n}\rangle\,\dd A\).
 
 4. **Applying Stokes’ Theorem.**  
    Since \(M\) is an oriented manifold with boundary \(\partial M\), the [**General Stokes Theorem**](#theroem-2general-stokes) tells us
    \[\int_{M} \dd \omega\;=\;\int_{\partial M} \omega.\]
-   Substituting \(\dd \omega = (\operatorname{div}F)\,\dd V\) and \(\omega = \langle F,\mathbf{n}\rangle\,\dd A\), we get
-   \[\int_{M} (\operatorname{div}F)\,\dd V\;=\;\int_{\partial M} \langle F,\mathbf{n}\rangle\,\dd A.\]
+   Substituting \(\dd \omega = (\operatorname{div}F)\,\dd V\) and \(\omega = \langle F,\Vec{n}\rangle\,\dd A\), we get
+   \[\int_{M} (\operatorname{div}F)\,\dd V\;=\;\int_{\partial M} \langle F,\Vec{n}\rangle\,\dd A.\]
    This completes the proof.
 
 **Q.E.D.**
@@ -1474,9 +1553,9 @@ Let's look at some examples:
 <div markdown=1>
 
 Use the divergence theorem to evaluate  
-\[\int_S \vec{F} \cdot \dd\vec{S}\]
+\[\int_S \Vec{F} \cdot \dd\Vec{S}\]
 where  
-\[\vec{F} = (xy, -\frac{1}{2} y^2, z)\]
+\[\Vec{F} = (xy, -\frac{1}{2} y^2, z)\]
 and the surface consists of the three surfaces:
 
 - Top: \( z = 4 - 3x^2 - 3y^2 \), with \( 1 \leq z \leq 4 \)  
@@ -1487,7 +1566,7 @@ and the surface consists of the three surfaces:
 <summary>Solution</summary>
 <div markdown=1>
 
-**Step 1. Compute the Divergence of \(\vec{F}\)**
+**Step 1. Compute the Divergence of \(\Vec{F}\)**
 
 
 Since
@@ -1496,13 +1575,13 @@ Since
 - \(F^3 = z\) so \(\frac{\partial F^3}{\partial z} = 1\).
 
 we have,
-\[\operatorname{div} \vec{F} = y + (-y) + 1 = 1.\]
+\[\operatorname{div} \Vec{F} = y + (-y) + 1 = 1.\]
 
 **Step 2. The Flux Equals the Volume of \(V\)**
 
 
-Since \(\operatorname{div} \vec{F} = 1\), the divergence theorem tells us that
-\[\iint_S \vec{F} \cdot \dd\vec{S} = \iiint_V 1\, \dd V = \operatorname{Vol}(V).\]
+Since \(\operatorname{div} \Vec{F} = 1\), the divergence theorem tells us that
+\[\iint_S \Vec{F} \cdot \dd\Vec{S} = \iiint_V 1\, \dd V = \operatorname{Vol}(V).\]
 
 So our task reduces to finding the volume of \(V\).
 
@@ -1551,7 +1630,7 @@ Thus, the volume is
 
 
 By the divergence theorem,
-\[\iint_S \vec{F} \cdot \dd\vec{S} = \operatorname{Vol}(V) = \frac{5\pi}{2}.\]
+\[\iint_S \Vec{F} \cdot \dd\Vec{S} = \operatorname{Vol}(V) = \frac{5\pi}{2}.\]
 
 **Final Answer**
 
@@ -1568,12 +1647,12 @@ By the divergence theorem,
 <div markdown=1>
 
 Evaluate the flux integral  
-\[\iint_S \vec{F} \cdot \vec{n} \, \dd S\]  
-where \( \vec{n} \) is the outward normal to \( S \),  
+\[\iint_S \Vec{F} \cdot \Vec{n} \, \dd S\]  
+where \( \Vec{n} \) is the outward normal to \( S \),  
 which is the part of the surface  
 \[z^2 = x^2 + y^2 \quad \text{with} \quad 1 \leq z \leq 2,\]  
 and where  
-\[\vec{F} = (3x, 5y + e^{\cos x}, z ).\]
+\[\Vec{F} = (3x, 5y + e^{\cos x}, z ).\]
 
 <details>
 <summary>Solution</summary>
@@ -1583,11 +1662,11 @@ and where
 
 
 We have
-\[\operatorname{div}\vec{F} = \frac{\partial (3x)}{\partial x} + \frac{\partial (5y+e^{\cos x})}{\partial y} + \frac{\partial (z)}{\partial z}.\]
+\[\operatorname{div}\Vec{F} = \frac{\partial (3x)}{\partial x} + \frac{\partial (5y+e^{\cos x})}{\partial y} + \frac{\partial (z)}{\partial z}.\]
 Since
 \[\frac{\partial (3x)}{\partial x}=3,\quad \frac{\partial (5y+e^{\cos x})}{\partial y}=5,\quad \frac{\partial (z)}{\partial z}=1,\]
 it follows that
-\[\operatorname{div}\vec{F} = 3+5+1=9.\]
+\[\operatorname{div}\Vec{F} = 3+5+1=9.\]
 
 **Step 2. Compute the Volume of \(V\)**
 
@@ -1615,7 +1694,7 @@ Thus,
 
 
 By the divergence theorem,
-\[\iint_{S_{\text{closed}}}\vec{F}\cdot \vec{n}\,\dd S = \iiint_V (\operatorname{div}\vec{F})\,\dd V = 9\cdot \frac{7\pi}{3} = 21\pi.\]
+\[\iint_{S_{\text{closed}}}\Vec{F}\cdot \Vec{n}\,\dd S = \iiint_V (\operatorname{div}\Vec{F})\,\dd V = 9\cdot \frac{7\pi}{3} = 21\pi.\]
 
 **Step 4. Compute the Flux Through the Caps**
 
@@ -1624,19 +1703,19 @@ Now we must “subtract” the flux through the added caps to isolate the flux t
 
 **Top Cap (\(z=2\))**
 
-On the top, \(z=2\) and \(x^2+y^2\le4\). The outward unit normal is \( \vec{n}=(0,0,1)\). Then
-\[\vec{F}(x,y,2)=(3x,\;5y+e^{\cos x},\;2).\]
+On the top, \(z=2\) and \(x^2+y^2\le4\). The outward unit normal is \( \Vec{n}=(0,0,1)\). Then
+\[\Vec{F}(x,y,2)=(3x,\;5y+e^{\cos x},\;2).\]
 Thus,
-\[\vec{F}\cdot \vec{n} = 2.\]
+\[\Vec{F}\cdot \Vec{n} = 2.\]
 The area of the top disk is \(\pi(2)^2=4\pi\). Hence, the flux through the top is:
 \[\Phi_{\text{top}} = 2\cdot (4\pi)=8\pi.\]
 
 **Bottom Cap (\(z=1\))**
 
-On the bottom, \(z=1\) and \(x^2+y^2\le1\). Here the outward unit normal is directed \emph{downward} (since \(V\) lies above the bottom cap); that is, \( \vec{n}=(0,0,-1)\). At \(z=1\),
-\[\vec{F}(x,y,1)=(3x,\;5y+e^{\cos x},\;1).\]
+On the bottom, \(z=1\) and \(x^2+y^2\le1\). Here the outward unit normal is directed \emph{downward} (since \(V\) lies above the bottom cap); that is, \( \Vec{n}=(0,0,-1)\). At \(z=1\),
+\[\Vec{F}(x,y,1)=(3x,\;5y+e^{\cos x},\;1).\]
 Thus,
-\[\vec{F}\cdot \vec{n} = 1\cdot(-1)= -1.\]
+\[\Vec{F}\cdot \Vec{n} = 1\cdot(-1)= -1.\]
 The area of the bottom disk is \(\pi(1)^2=\pi\). So, the flux through the bottom is:
 \[\Phi_{\text{bottom}} = -1\cdot \pi = -\pi.\]
 
@@ -1680,9 +1759,9 @@ We will show following 3 properties:
 
 **1. Splitting \(\R^n \cong \R^{n-2} \times \R^2\)**
 
-Write a vector \(\vec{x}\in \R^n\) as \(\vec{x}=(u,y)\), where
+Write a vector \(\Vec{x}\in \R^n\) as \(\Vec{x}=(u,y)\), where
 \[u \;\in\; \R^{n-2},\quad y \;\in\; \R^2.\]
-Then \(\|\vec{x}\|\le r\) implies
+Then \(\|\Vec{x}\|\le r\) implies
 \[\norm{u}\;\le\;\sqrt{\,r^2 - \norm{y}^2\,}\quad\text{and}\quad\norm{y}\;\le\;r.\]
 Hence, the volume of \(B_n(r)\) can be written as
 \[V_n(r)\;=\;\int_{\{\norm{y}\le r\}}\int_{\{\norm{u}\le \sqrt{r^2-\norm{y}^2}\}}\dd u\,\dd y.\]
@@ -1726,18 +1805,18 @@ Thus, we arrive at the desired recursion:
 
 **Setup**  
    
-   Let \(\vec{F}(\vec{x}) = \vec{x}\) be the vector field on \(\R^n\). We consider the closed ball \(B_R\subset\R^n\) of radius \(R\) (centered at the origin) and its boundary \(\partial B_R\), which is the \((n-1)\)-dimensional sphere of radius \(R\).
+   Let \(\Vec{F}(\Vec{x}) = \Vec{x}\) be the vector field on \(\R^n\). We consider the closed ball \(B_R\subset\R^n\) of radius \(R\) (centered at the origin) and its boundary \(\partial B_R\), which is the \((n-1)\)-dimensional sphere of radius \(R\).
 
 **Compute \(\Div F\).**  
 
-   Since \(\vec{F} = (x_1, x_2, \dots, x_n)\), its divergence is
+   Since \(\Vec{F} = (x_1, x_2, \dots, x_n)\), its divergence is
    \[\Div F\;=\;\frac{\partial x_1}{\partial x_1}\;+\;\frac{\partial x_2}{\partial x_2}\;+\;\cdots\;+\;\frac{\partial x_n}{\partial x_n}\;=\;n.\]
 
 **Apply the Divergence Theorem**  
 
    The Divergence Theorem (a.k.a. the Gauss–Ostrogradsky Theorem) tells us
-   \[int_{B_R} (\Div F) \,\dd V\;=\;\int_{\partial B_R} \langle \vec{F}, \mathbf{n}\rangle \,\dd A,\]
-   where \(\mathbf{n}\) is the outward unit normal on \(\partial B_R\), and \(\dd A\) is the \((n-1)\)-dimensional area element on the sphere.
+   \[int_{B_R} (\Div F) \,\dd V\;=\;\int_{\partial B_R} \langle \Vec{F}, \Vec{n}\rangle \,\dd A,\]
+   where \(\Vec{n}\) is the outward unit normal on \(\partial B_R\), and \(\dd A\) is the \((n-1)\)-dimensional area element on the sphere.
 
 **Left‐Hand Side (Volume Integral)**  
 
@@ -1747,16 +1826,16 @@ Thus, we arrive at the desired recursion:
 
 **Right‐Hand Side (Surface Integral)**  
 
-   On the sphere \(\|\vec{x}\| = R\), the outward normal is \(\mathbf{n}(\vec{x}) = \frac{\vec{x}}{R}\). Hence, on \(\partial B_R\),
-   \[\langle \vec{F}, \mathbf{n}\rangle\;=\;\langle \vec{x}, \tfrac{\vec{x}}{R}\rangle\;=\;\frac{1}{R}\,\|\vec{x}\|^2\;=\;\frac{R^2}{R}\;=\; R.\]
+   On the sphere \(\|\Vec{x}\| = R\), the outward normal is \(\Vec{n}(\Vec{x}) = \frac{\Vec{x}}{R}\). Hence, on \(\partial B_R\),
+   \[\langle \Vec{F}, \Vec{n}\rangle\;=\;\langle \Vec{x}, \tfrac{\Vec{x}}{R}\rangle\;=\;\frac{1}{R}\,\|\Vec{x}\|^2\;=\;\frac{R^2}{R}\;=\; R.\]
    Therefore,
-   \[\int_{\partial B_R} \langle \vec{F}, \mathbf{n}\rangle \,\dd A\;=\;\int_{\partial B_R} R \,\dd A\;=\;R \,\int_{\partial B_R} \dd A\;=\;R\, S_{n-1}(R),\]
+   \[\int_{\partial B_R} \langle \Vec{F}, \Vec{n}\rangle \,\dd A\;=\;\int_{\partial B_R} R \,\dd A\;=\;R \,\int_{\partial B_R} \dd A\;=\;R\, S_{n-1}(R),\]
    where \(S_{n-1}(R)\) is the \((n-1)\)-dimensional surface area of the sphere of radius \(R\).
 
 **Equating Both Sides**  
 
    By the Divergence Theorem:
-   \[\underbrace{\int_{B_R} (\Div F) \,\dd V}_{n\,V_n(R)}\;=\;\underbrace{\int_{\partial B_R} \langle \vec{F}, \mathbf{n}\rangle \,\dd A}_{R\,S_{n-1}(R)}.\]
+   \[\underbrace{\int_{B_R} (\Div F) \,\dd V}_{n\,V_n(R)}\;=\;\underbrace{\int_{\partial B_R} \langle \Vec{F}, \Vec{n}\rangle \,\dd A}_{R\,S_{n-1}(R)}.\]
    Hence we conclude
    \[\boxed{\,n \,V_n(R) \;=\; R \,S_{n-1}(R).\,}\]
 
