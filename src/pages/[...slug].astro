@@ -1,0 +1,18 @@
+---
+import { render } from "astro:content";
+import BlogPost from "$layouts/BlogPost.astro";
+import { publishedPosts, postUrl, type Post } from "../lib/posts";
+export async function getStaticPaths() {
+  return (await publishedPosts()).flatMap(post => {
+    const slug = postUrl(post).replace(/^\/|\/$/g, "");
+    const paths = [{ params: { slug }, props: { post, alias: false } }];
+    if (slug !== `article/${post.id}`) paths.push({ params: { slug: `article/${post.id}` }, props: { post, alias: true } });
+    return paths;
+  });
+}
+interface Props { post: Post; alias: boolean; }
+const { post, alias } = Astro.props;
+if (alias) return Astro.redirect(postUrl(post), 301);
+const { Content } = await render(post);
+---
+<BlogPost post={post}><Content /></BlogPost>

@@ -1,0 +1,20 @@
+---
+import BaseHead from "$components/BaseHead.astro";
+import Header from "$components/Header.astro";
+import { kSiteOwner } from "$consts";
+interface Props { title: string; description?: string; lang?: string; image?: string; noindex?: boolean; }
+const { lang = "zh-CN", ...head } = Astro.props;
+---
+<!doctype html>
+<html lang={lang}>
+  <head><BaseHead {...head} /></head>
+  <body>
+    <Header />
+    <main id="main-content"><slot /></main>
+    <footer class="site-footer">
+      <span>© {new Date().getFullYear()} {kSiteOwner}</span>
+      <a href="/feed.xml">RSS</a>
+      <a href="https://github.com/icey-ai/icey-ai.github.io">GitHub</a>
+    </footer>
+  </body>
+</html>

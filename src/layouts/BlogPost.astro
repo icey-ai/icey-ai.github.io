@@ -1,0 +1,36 @@
+---
+import Page from "$layouts/Page.astro";
+import Giscus from "$components/Giscus.astro";
+import { postUrl, tagUrl, type Post } from "../lib/posts";
+interface Props { post: Post; }
+const { post } = Astro.props;
+const { title, description, date, lang, author, tags, image } = post.data;
+---
+<Page title={title} description={description} lang={lang} image={image}>
+  <article class="prose">
+    <header class="post-title">
+      <p class="post-meta"><time datetime={date.toISOString()}>{date.toISOString().slice(0, 10)}</time> · {author}</p>
+      <h1>{title}</h1>
+      <ul class="post-tags">{tags.map(tag => <li><a href={tagUrl(tag)}>{tag}</a></li>)}</ul>
+      {image && <img class="post-cover" src={image} alt="" fetchpriority="high" />}
+    </header>
+    <slot />
+  </article>
+  <Giscus pathname={postUrl(post)} />
+  <script>
+    function revealFragment() {
+      let id: string;
+      try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+      const target = document.getElementById(id);
+      if (!target) return;
+      let parent = target.parentElement;
+      while (parent) {
+        if (parent instanceof HTMLDetailsElement) parent.open = true;
+        parent = parent.parentElement;
+      }
+      requestAnimationFrame(() => target.scrollIntoView());
+    }
+    addEventListener('hashchange', revealFragment);
+    revealFragment();
+  </script>
+</Page>

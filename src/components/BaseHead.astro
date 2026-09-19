@@ -1,0 +1,40 @@
+---
+import "$styles/global.css";
+import "$styles/font.css";
+import "$styles/typst-math.css";
+import "$styles/blog.css";
+import ThemeProvider from "virtual:tylant/components/ThemeProvider";
+import { kSiteTitle, kSiteDescription } from "$consts";
+interface Props { title: string; description?: string; image?: string; noindex?: boolean; }
+const { title, description = kSiteDescription, image = "/assets/images/android-chrome-512x512.png", noindex = false } = Astro.props;
+const fullTitle = title === kSiteTitle ? title : `${title} | ${kSiteTitle}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = new URL(image, Astro.site);
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="generator" content={Astro.generator} />
+<meta name="google-site-verification" content="l5tI89SxJuJsiXiRerygfs0p2vNeiIIIlbmRhUUyZYU" />
+<link rel="canonical" href={canonical} />
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+<link rel="apple-touch-icon" href="/assets/images/android-chrome-192x192.png" />
+<link rel="alternate" type="application/rss+xml" title={kSiteTitle} href="/feed.xml" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta name="twitter:card" content="summary_large_image" />
+{noindex && <meta name="robots" content="noindex" />}
+<ThemeProvider />
+{import.meta.env.PROD && <>
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-RRZCJZMMNR"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RRZCJZMMNR');
+  </script>
+</>}

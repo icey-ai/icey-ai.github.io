@@ -1,0 +1,10 @@
+---
+import Page from "$layouts/Page.astro";
+import { publishedPosts, tagUrl } from "../../lib/posts";
+const posts = await publishedPosts();
+const tags = [...new Set(posts.flatMap(post => post.data.tags))].sort();
+---
+<Page title="标签">
+  <h1>标签</h1>
+  <ul class="taxonomy-list">{tags.map(tag => <li><a href={tagUrl(tag)}>{tag}</a><span>{posts.filter(post => post.data.tags.includes(tag)).length} 篇</span></li>)}</ul>
+</Page>

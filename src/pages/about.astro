@@ -1,0 +1,37 @@
+---
+import Page from "$layouts/Page.astro";
+import About from "../../content/other/about.typ?html&body";
+import author from "../../content/author.json";
+---
+<Page title="关于" description={`${author.name} · ${author.bio}`} image={author.avatar}>
+  <article class="about-page">
+    <h1>About</h1>
+    <section class="author-profile" aria-labelledby="author-name">
+      <img class="author-avatar" src={author.avatar} alt={`${author.name} 的头像`} width="640" height="640" />
+      <div class="author-info">
+        <h2 id="author-name">{author.name}</h2>
+        <p class="author-bio" lang="ja">{author.bio}</p>
+        <dl class="author-location">
+          <dt>所在地</dt>
+          <dd>{author.location}</dd>
+        </dl>
+      </div>
+    </section>
+    <div class="prose"><About /></div>
+  </article>
+</Page>
+
+<style>
+  .about-page { max-width: 44rem; text-align: left; }
+  .author-profile { display: flex; align-items: center; gap: 2rem; }
+  .author-avatar { display: block; width: 8rem; height: 8rem; flex-shrink: 0; object-fit: cover; border-radius: 50%; }
+  .author-info { min-width: 0; }
+  .author-info h2 { margin: 0 0 .6rem; font-size: 2rem; line-height: 1.3; }
+  .author-bio { margin: 0 0 .75rem; }
+  .author-location { display: flex; flex-wrap: wrap; gap: .35rem .75rem; margin: 0; font-size: .9rem; color: var(--gray-color); }
+  .author-location dd { margin: 0; }
+  @media (max-width: 560px) {
+    .author-profile { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .author-avatar { width: 6rem; height: 6rem; }
+  }
+</style>

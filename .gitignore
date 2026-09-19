@@ -1,7 +1,56 @@
-_site
-.sass-cache
+# Dependencies, build output, and caches
+node_modules/
+dist/
+.astro/
+.pnpm-store/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+*.log
+coverage/
+playwright-report/
+test-results/
+
+# Machine-specific settings; the base .env contains required public site config
+.env.*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Notes and migration material are versioned on local/migration-archive
+README*
+/docs/
+/examples/
+/_drafts/
+/.migration/
+/.font-review/
+/.local/
+/backups/
+/logs/
+/tmp/
+/temp/
+/content/migration.json
+
+# Vendored development material, unused by the website
+/packages/tylant/.gitignore
+/typ/.gitmodules
+/typ/scripts/
+/typ/packages/dotenv/test.typ
+/typ/packages/zebraw/.github/
+/typ/packages/zebraw/.gitignore
+/typ/packages/zebraw/.typstignore
+/typ/packages/zebraw/assets/
+/typ/packages/zebraw/bench/
+/typ/packages/zebraw/bench.sh
+/typ/packages/zebraw/example-*.typ
+/typ/packages/zebraw/tests/
+
+# Legacy Jekyll output
+_site/
+.sass-cache/
 .jekyll-metadata
-_drafts
-.jektex-cache
-.jekyll-cache
+.jekyll-cache/
+.jektex-cache/
 Gemfile.lock

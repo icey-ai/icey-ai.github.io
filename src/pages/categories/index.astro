@@ -1,0 +1,14 @@
+---
+import Page from "$layouts/Page.astro";
+import { publishedPosts, postUrl } from "../../lib/posts";
+const posts = await publishedPosts();
+const categories = [...new Set(posts.flatMap(post => post.data.categories))].sort();
+const categoryId = (category: string) => category.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "");
+---
+<Page title="分类">
+  <h1>分类</h1>
+  {categories.map(category => <section id={categoryId(category)}>
+    <h2>{category}</h2>
+    <ul>{posts.filter(post => post.data.categories.includes(category)).map(post => <li><a href={postUrl(post)}>{post.data.title}</a></li>)}</ul>
+  </section>)}
+</Page>

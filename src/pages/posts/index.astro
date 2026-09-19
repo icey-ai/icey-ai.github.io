@@ -1,0 +1,12 @@
+---
+import Page from "$layouts/Page.astro";
+import PostList from "$components/PostList.astro";
+import Search from "virtual:tylant/components/Search";
+import { publishedPosts } from "../../lib/posts";
+const posts = await publishedPosts();
+---
+<Page title="文章">
+  <h1>文章</h1>
+  <Search />
+  <PostList posts={posts} searchable />
+</Page>

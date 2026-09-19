@@ -1,0 +1,15 @@
+---
+import { postUrl, tagUrl, type Post } from "../lib/posts";
+interface Props { posts: Post[]; searchable?: boolean; }
+const { posts, searchable = false } = Astro.props;
+---
+<ul class:list={["post-list", { posts: searchable }]}>
+  {posts.map((post, index) => <li
+    id={searchable && (index === 0 || posts[index - 1].data.date.getUTCFullYear() !== post.data.date.getUTCFullYear()) ? String(post.data.date.getUTCFullYear()) : undefined}
+    data-article-id={post.id} data-article-meta={searchable ? JSON.stringify(post.data) : undefined}>
+    <time datetime={post.data.date.toISOString()}>{post.data.date.toISOString().slice(0, 10)}</time>
+    <h2><a href={postUrl(post)}>{post.data.title}</a></h2>
+    <p>{post.data.description}</p>
+    <div class="post-tags">{post.data.tags.map(tag => <a href={tagUrl(tag)}>{tag}</a>)}</div>
+  </li>)}
+</ul>

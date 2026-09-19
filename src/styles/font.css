@@ -1,0 +1,21 @@
+/* Local, version-locked webfonts. The browser requests only used Unicode subsets. */
+@import "@fontsource-variable/source-serif-4/opsz.css";
+@import "@fontsource-variable/source-serif-4/opsz-italic.css";
+@import "lxgw-wenkai-screen-web/lxgwwenkaiscreen/result.css";
+
+:root {
+  /* Latin comes first: WenKai also contains Latin glyphs. */
+  --font-text: "Source Serif 4 Variable", "LXGW WenKai Screen", "Kaiti SC", "KaiTi", serif;
+  --font-code: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", "LXGW WenKai Screen", monospace;
+}
+
+body {
+  font-size: 1.125rem;
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  font-variant-numeric: lining-nums;
+}
+
+button, input, select, textarea { font-family: inherit; }
+h1, h2, h3, h4, h5, h6 { font-weight: 600; }
+time { font-variant-numeric: lining-nums tabular-nums; }
