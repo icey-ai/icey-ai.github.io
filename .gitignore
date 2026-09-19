@@ -20,9 +20,8 @@ Thumbs.db
 Desktop.ini
 
 # Notes and migration material are versioned on local/migration-archive
-README*
+README*.pdf
 /docs/
-/examples/
 /_drafts/
 /.migration/
 /.font-review/
